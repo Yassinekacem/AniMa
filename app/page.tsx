@@ -1,97 +1,107 @@
-import Image from "next/image";
 import React from "react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-   
+    <div className="flex flex-col w-full">
 
-      {/* Hero Section */}
-      <section className="relative w-full h-[70vh] flex items-center justify-center bg-gradient-to-r from-blue-200 to-pink-200">
-        <div className="text-center px-4">
-          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">
-            Bienvenue sur AniMa
+      {/* HERO */}
+      <section className="relative w-full h-[75vh] flex items-center justify-center bg-gradient-to-br from-blue-400 via-pink-300 to-purple-300 rounded-b-3xl overflow-hidden">
+
+        {/* Blobs décoratifs */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/40 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-white/20 rounded-full blur-2xl"></div>
+
+        <div className="relative text-center px-6 max-w-2xl">
+          <h1 className="text-6xl font-extrabold text-white drop-shadow-2xl leading-tight">
+            AniMa – Your Animals Companion
           </h1>
-          <p className="mt-4 text-xl text-white drop-shadow-md">
-            Découvrez nos amis à quatre pattes et trouvez votre compagnon idéal !
+
+          <p className="mt-4 text-xl font-medium text-white/90 drop-shadow">
+            Découvrez, adoptez et analysez le monde des animaux avec simplicité.
           </p>
-          <div className="mt-6 flex justify-center gap-4">
-            <a
-              href="/dogs"
-              className="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
-            >
-              Voir les chiens
-            </a>
+
+          <div className="mt-8 flex justify-center gap-4">
             <a
               href="/cats"
-              className="bg-pink-400 text-white px-6 py-2 rounded-lg font-semibold hover:bg-pink-500 transition"
+              className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition"
             >
-              Voir les chats
+              Explorer les chats
+            </a>
+
+            <a
+              href="/dogs"
+              className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-800 hover:scale-105 transition"
+            >
+              Explorer les chiens
             </a>
           </div>
         </div>
-        <Image
-          src="/animals-hero.png" // remplace par une image réelle dans /public
-          alt="Animaux mignons"
-          fill
-          className="object-cover opacity-30"
-        />
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16 bg-white">
-        <h2 className="text-3xl font-bold text-center mb-10">Nos catégories</h2>
-        <div className="flex flex-col md:flex-row justify-center gap-10 px-4">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg hover:scale-105 transition">
-            <Image
-              src="/dog.jpg"
-              alt="Dog"
-              width={400}
-              height={250}
-              className="w-full h-60 object-cover"
-            />
-            <div className="px-6 py-4">
-              <h3 className="font-bold text-xl mb-2">Chiens</h3>
-              <p className="text-gray-700 text-base">
-                Découvrez notre sélection de chiens à adopter.
+      {/* FEATURES */}
+      <section className="py-24 bg-white">
+        <h2 className="text-4xl font-bold text-center mb-14">Nos Solutions</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto px-6">
+
+          {/* Dashboard Logs */}
+          <div className="rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition bg-white border border-gray-100">
+            <div className="w-full h-56 bg-blue-100 flex items-center justify-center">
+              <span className="text-7xl">📊</span>
+            </div>
+            <div className="px-8 py-6">
+              <h3 className="font-bold text-2xl mb-3">Analyse & Logs</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Surveillez l’activité du site, consultez les erreurs et visualisez les journaux en temps réel.
               </p>
             </div>
           </div>
-          <div className="max-w-sm rounded overflow-hidden shadow-lg hover:scale-105 transition">
-            <Image
-              src="/cat.jpg"
-              alt="Cat"
-              width={400}
-              height={250}
-              className="w-full h-60 object-cover"
-            />
-            <div className="px-6 py-4">
-              <h3 className="font-bold text-xl mb-2">Chats</h3>
-              <p className="text-gray-700 text-base">
-                Explorez nos chats adorables à adopter.
+
+          {/* Dashboard Animaux */}
+          <div className="rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition bg-white border border-gray-100">
+            <div className="w-full h-56 bg-green-100 flex items-center justify-center">
+              <span className="text-7xl">🐾</span>
+            </div>
+            <div className="px-8 py-6">
+              <h3 className="font-bold text-2xl mb-3">Statistiques Animales</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Analysez les types, comportements, tendances et données d’adoption des animaux.
+              </p>
+            </div>
+          </div>
+
+          {/* Liste des animaux */}
+          <div className="rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition bg-white border border-gray-100">
+            <div className="w-full h-56 bg-pink-100 flex items-center justify-center">
+              <span className="text-7xl">🐶</span>
+            </div>
+            <div className="px-8 py-6">
+              <h3 className="font-bold text-2xl mb-3">Nos Animaux</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Recherchez, filtrez et découvrez les profils détaillés de tous les animaux disponibles.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-16 bg-blue-50">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-3xl font-bold mb-4">À propos de nous</h2>
-          <p className="text-gray-700 text-lg">
-            AniMa est une plateforme dédiée aux amoureux des animaux. Notre mission est de
-            faciliter l’adoption et de sensibiliser à la protection animale.
+      {/* ABOUT */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-3xl mx-auto text-center px-6">
+          <h2 className="text-4xl font-bold mb-6">À propos de nous</h2>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            AniMa est une plateforme moderne destinée aux passionnés d’animaux.
+            Notre objectif est de simplifier l’adoption et de promouvoir la protection animale
+            grâce à des outils innovants et accessibles.
           </p>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6 mt-auto">
-        <div className="max-w-6xl mx-auto text-center">
-          &copy; {new Date().getFullYear()} AniMa. Tous droits réservés.
-        </div>
+      {/* FOOTER */}
+      <footer className="bg-gray-900 text-white py-6 text-center">
+        © {new Date().getFullYear()} AniMa — Tous droits réservés.
       </footer>
+
     </div>
   );
 }

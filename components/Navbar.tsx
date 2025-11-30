@@ -11,7 +11,7 @@ const NavBar = () => {
     pathname === route || pathname.startsWith(`${route}/`);
 
   return (
-    <nav className="w-[95%] mx-auto border-b h-[8vh] flex items-center justify-between px-4 rounded-bl-3xl rounded-br-3xl shadow-md shadow-slate-200">
+    <nav className="w-full border-b h-[8vh] flex items-center justify-between px-6 shadow-md shadow-slate-200 bg-white">
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
@@ -20,14 +20,14 @@ const NavBar = () => {
             alt="logo"
             width={150}
             height={50}
-            className="w-[150px] h-[50%]"
+            className="w-[130px] h-[40%]"
           />
         </Link>
       </div>
 
       {/* Navigation links */}
       <div className="flex-grow flex justify-center">
-        <div className="flex flex-row items-center gap-10 px-4">
+        <div className="flex flex-row items-center gap-10">
           {[
             { name: "Home", href: "/" },
             { name: "Dogs", href: "/dogs" },
@@ -37,7 +37,7 @@ const NavBar = () => {
           ].map((link) => (
             <Link key={link.href} href={link.href}>
               <h3
-                className={`font-semibold ${
+                className={`font-semibold cursor-pointer ${
                   isActive(link.href)
                     ? "text-blue-500 border-b-2 border-blue-500"
                     : "text-black"
