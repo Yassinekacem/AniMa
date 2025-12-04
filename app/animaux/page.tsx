@@ -7,7 +7,7 @@ import axios from "axios";
 
 // ---------- TYPES ----------
 type AnimalType = {
-  id: number;
+  id?: number; // id est optionnel puisque l'API ne le retourne pas
   espece: string;
   race: string;
   sexe: string;
@@ -99,10 +99,17 @@ const Filter = () => {
 };
 
 // ---------- PET CARD COMPONENT ----------
-const PetCard = ({ item }: { item: AnimalType }) => (
+const PetCard = ({ item, index }: { item: AnimalType; index: number }) => (
   <div className='w-[290px] flex flex-col items-center justify-center gap-3'>
     <div className='flex flex-col relative'>
-      <Image src={item.image_url} alt={item.race} width={90} height={90} className='rounded-full' />
+      <Image 
+        src={item.image_url} 
+        alt={item.race} 
+        width={90} 
+        height={90} 
+        className='rounded-full'
+        unoptimized // Ajouté pour les images externes
+      />
       <div className='w-[100px] h-[50px] bg-pink-400 absolute bottom-0 rounded-b-full' />
     </div>
     <div className='bg-slate-100 rounded-xl pt-[50px] pb-2 w-full flex flex-col items-center gap-2 relative -top-[40px]'>
@@ -110,7 +117,7 @@ const PetCard = ({ item }: { item: AnimalType }) => (
       <span className='font-bold text-black'>{item.sexe === "M" ? "Male" : "Female"}</span>
       <span className="text-black">{item.city}</span>
       <p className='text-xs text-gray-700 text-center px-2'>{item.description}</p>
-      <Link href={`/detail/${item.id}`}>
+      <Link href={`/detail/${index}`}> {/* Utilisation de l'index pour le lien temporairement */}
         <button className='text-pink-400 bg-white hover:bg-white border border-pink-400 w-[90%] py-1 rounded'>
           More Info
         </button>
@@ -150,7 +157,13 @@ const AnimalsPage = () => {
           {loading ? (
             <p className="text-black">Loading...</p>
           ) : (
-            animals.map(animal => <PetCard key={animal.id} item={animal} />)
+            animals.map((animal, index) => (
+              <PetCard 
+                key={`${animal.race}-${animal.city}-${index}`} // Clé unique combinant plusieurs propriétés
+                item={animal} 
+                index={index} 
+              />
+            ))
           )}
         </div>
       </div>
