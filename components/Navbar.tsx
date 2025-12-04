@@ -11,23 +11,23 @@ const NavBar = () => {
     pathname === route || pathname.startsWith(`${route}/`);
 
   return (
-    <nav className="w-full border-b h-[8vh] flex items-center justify-between px-6 shadow-md shadow-slate-200 bg-white">
+    <nav className="w-full border-b border-gray-100 h-16 flex items-center justify-between px-6 md:px-8 bg-white">
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
           <Image
-            src="/Logo2.jpg"
-            alt="logo"
-            width={150}
-            height={50}
-            className="w-[130px] h-[40%]"
+            src="/Logo1.png"
+            alt="AniMa Logo"
+            width={160}
+            height={64}
+            className="w-32 md:w-36 h-auto hover:opacity-90 transition-opacity"
           />
         </Link>
       </div>
 
       {/* Navigation links */}
-      <div className="flex-grow flex justify-center">
-        <div className="flex flex-row items-center gap-10">
+      <div className="hidden md:flex flex-grow justify-center">
+        <div className="flex items-center gap-10">
           {[
             { name: "Home", href: "/" },
             { name: "Dogs", href: "/dogs" },
@@ -36,30 +36,60 @@ const NavBar = () => {
             { name: "Contact Us", href: "/contact-us" },
           ].map((link) => (
             <Link key={link.href} href={link.href}>
-              <h3
-                className={`font-semibold cursor-pointer ${
-                  isActive(link.href)
-                    ? "text-blue-500 border-b-2 border-blue-500"
-                    : "text-black"
-                }`}
-              >
-                {link.name}
-              </h3>
+              <div className="relative group">
+                <span
+                  className={`font-medium text-gray-700 text-sm transition-colors duration-200 ${
+                    isActive(link.href)
+                      ? "text-[#549aeb]"
+                      : "hover:text-[#549aeb]"
+                  }`}
+                >
+                  {link.name}
+                </span>
+                
+                {/* Indicator for active link */}
+                {isActive(link.href) && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#549aeb] to-[#dc559c] rounded-full" />
+                )}
+                
+                {/* Hover effect */}
+                <div className="absolute -bottom-1 left-1/2 right-1/2 h-[1.5px] bg-gradient-to-r from-[#549aeb] to-[#dc559c] rounded-full group-hover:left-0 group-hover:right-0 transition-all duration-300" />
+              </div>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Auth buttons */}
-      <div className="flex items-center gap-x-5">
+      {/* Auth buttons - Compact Design */}
+      <div className="flex items-center gap-3">
         <Link href="/sign-in">
-          <button className="bg-blue-400 font-extrabold text-white py-1 px-4 rounded hover:bg-blue-500">
-            Sign In
+          <button className="relative overflow-hidden bg-gradient-to-r from-[#549aeb] to-[#4788d9] 
+                           text-white font-semibold py-2 px-5 rounded-lg 
+                           hover:shadow-md hover:shadow-blue-200 
+                           transition-all duration-300 hover:scale-[1.02]
+                           active:scale-[0.98] group text-sm"
+          >
+            {/* Shine effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            
+            <span className="relative">Sign In</span>
           </button>
         </Link>
+        
         <Link href="/sign-up">
-          <button className="bg-white text-pink-400 border-2 font-extrabold border-pink-400 py-1 px-4 rounded hover:bg-pink-50">
-            Sign Up
+          <button className="relative overflow-hidden bg-white 
+                           border border-[#dc559c]
+                           text-[#dc559c] font-semibold py-2 px-5 rounded-lg 
+                           hover:bg-gradient-to-r hover:from-[#dc559c] hover:to-[#c94a8a]
+                           hover:text-white hover:border-transparent
+                           hover:shadow-md hover:shadow-pink-200
+                           transition-all duration-300 hover:scale-[1.02]
+                           active:scale-[0.98] group text-sm"
+          >
+            {/* Shine effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            
+            <span className="relative">Sign Up</span>
           </button>
         </Link>
       </div>
