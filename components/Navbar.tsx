@@ -30,9 +30,9 @@ const NavBar = () => {
         <div className="flex items-center gap-10">
           {[
             { name: "Home", href: "/" },
-            { name: "Dogs", href: "/dogs" },
-            { name: "Cats", href: "/cats" },
-            { name: "About Us", href: "/about-us" },
+            { name: "Animals", href: "/animaux" },
+            
+            { name: "Dashboard", href: "/Dashboards" },
             { name: "Contact Us", href: "/contact-us" },
           ].map((link) => (
             <Link key={link.href} href={link.href}>
