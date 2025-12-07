@@ -32,7 +32,7 @@ const NavBar = () => {
             { name: "Home", href: "/" },
             { name: "Animals", href: "/animaux" },
             
-            { name: "Dashboard", href: "/Dashboards" },
+            { name: "dashboard", href: "/dashboard" },
             { name: "Contact Us", href: "/contact-us" },
           ].map((link) => (
             <Link key={link.href} href={link.href}>
