@@ -62,7 +62,7 @@ const NavBar = () => {
 
       {/* Auth buttons - Compact Design */}
       <div className="flex items-center gap-3">
-        <Link href="/sign-in">
+        <Link href="/signIn">
           <button className="relative overflow-hidden bg-gradient-to-r from-[#549aeb] to-[#4788d9] 
                            text-white font-semibold py-2 px-5 rounded-lg 
                            hover:shadow-md hover:shadow-blue-200 
@@ -76,7 +76,7 @@ const NavBar = () => {
           </button>
         </Link>
         
-        <Link href="/sign-up">
+        <Link href="/signUp">
           <button className="relative overflow-hidden bg-white 
                            border border-[#dc559c]
                            text-[#dc559c] font-semibold py-2 px-5 rounded-lg 

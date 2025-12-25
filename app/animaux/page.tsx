@@ -135,7 +135,7 @@ const Filter = ({
             type="text"
             value={localSearch}
             onChange={handleSearchChange}
-            placeholder="🔍 Search by breed, description, city..."
+            placeholder="Search by description"
             className="w-full p-3 pl-10 border-2 border-gray-200 rounded-lg text-black bg-white focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-200 transition-all"
           />
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
