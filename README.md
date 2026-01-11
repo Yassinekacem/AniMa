@@ -29,5 +29,5 @@ Elle facilite la recherche, le filtrage et la visualisation des indicateurs via 
 ## Installation & exécution (exemple)
 1. Cloner le projet
    ```bash
-   git clone <url-du-repo>
-   cd <nom-du-projet>
+   git clone https://github.com/Yassinekacem/AniMa.git
+   cd anima
